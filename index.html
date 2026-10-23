@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HelloAIPilot | AI Receptionists for Local Businesses</title>
+<meta name="description" content="HelloAIPilot builds AI phone receptionists for hotels, dental offices, AC companies, real estate teams and roofers. Every call answered, every appointment booked. Katy, Texas.">
+<meta property="og:title" content="HelloAIPilot | Every call answered. Every appointment booked.">
+<meta property="og:description" content="AI receptionists that answer your phone 24/7, follow your rules, and book appointments into your calendar.">
+<meta name="theme-color" content="#080d1d">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="/"><img src="/logo.png" alt="HelloAIPilot" width="309" height="72"></a>
+  <nav>
+    <a href="/" aria-current="page">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/industries/">Industries</a>
+    <a href="/about/">About</a>
+    <a href="/faq/">FAQ</a>
+    <a href="/book/">Book a call</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <a class="btn small" href="/contact/#enquiry">Book a strategy call ↗</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">✦ AI RECEPTIONISTS FOR LOCAL BUSINESSES</div>
+    <h1>Your phone rings.<br><em>HelloAIPilot answers.</em></h1>
+    <p>Customers call when they're ready to buy. If nobody answers, they call someone else. HelloAIPilot gives your business an AI receptionist that picks up every call, answers questions the way you would, and books the appointment while the caller is still on the line.</p>
+    <div class="actions">
+      <a class="btn" href="/contact/#enquiry">Book a free strategy call ↗</a>
+      <a class="btn outline" href="/industries/">See it for your industry</a>
+    </div>
+    <canvas class="bookflight" id="bookflight" role="img" aria-label="Animation: an incoming call is handed to the AI receptionist, which books a time on the calendar."></canvas>
+    <section class="demo-live" id="livedemo" aria-label="Example conversations with the HelloAIPilot receptionist">
+      <div class="dl-head"><span class="eyebrow">EXAMPLE CALLS</span><span class="dl-title" id="dl-title"></span></div>
+      <div class="dl-tabs" role="tablist" aria-label="Choose an industry"></div>
+      <div class="dl-msgs" id="dl-msgs" aria-live="off"></div>
+      <div class="dl-result" id="dl-result"></div>
+      <div class="dl-bar" aria-hidden="true"><i id="dl-bar"></i></div>
+      <p class="dl-note">Illustrative examples. Each business sets its own rules, prices and hours.</p>
+    </section>
+    <div class="hero-panel">
+      <div class="panel-top"><span><i class="dot"></i> LIVE CALL · AC REPAIR</span><span>11:42 PM</span></div>
+      <div class="wave"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+      <div class="chat caller">“My AC stopped cooling and it's 84 degrees inside. Can someone come out?”</div>
+      <div class="chat">“I'm sorry, that's no fun. I can book a technician for 8:00 AM tomorrow and flag it as urgent. What's the service address?”</div>
+      <div class="steps"><span>Answer</span><span>Qualify</span><span>Book</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="problem">
+    <div class="eyebrow">WHY IT MATTERS</div>
+    <h2>Every unanswered call is a customer<br><em>calling your competitor next.</em></h2>
+    <div class="grid three">
+      <article class="tile">
+        <div class="num">After hours</div>
+        <h3>Nights and weekends go to voicemail</h3>
+        <p>AC breakdowns, roof leaks and toothaches don't wait for business hours. Most callers who reach a voicemail don't leave a message. They call the next business on the list.</p>
+      </article>
+      <article class="tile">
+        <div class="num">Busy hours</div>
+        <h3>Your team can't answer and serve at once</h3>
+        <p>When the front desk is checking in a guest or a patient, the phone keeps ringing. Every missed ring during your busiest hour is a booking you paid to attract.</p>
+      </article>
+      <article class="tile">
+        <div class="num">Slow follow-up</div>
+        <h3>The first business to answer usually wins</h3>
+        <p>Buyers, homeowners and guests rarely wait for a callback. A real estate lead or a storm-damage call goes to whoever picks up first.</p>
+      </article>
+    </div>
+
+    <div class="calc" id="calc">
+      <div class="calc-copy">
+        <div class="eyebrow">RUN YOUR OWN NUMBERS</div>
+        <h3>What are missed calls costing you?</h3>
+        <p>Enter your own estimates. The result is missed calls × the share that would have booked × your average job value, over an average month (52 weeks ÷ 12). Nothing is sent or saved.</p>
+      </div>
+      <div class="calc-inputs">
+        <label for="c-missed">Missed calls per week<input id="c-missed" type="number" min="0" step="1" value="15"></label>
+        <label for="c-rate">% that would have booked<input id="c-rate" type="number" min="0" max="100" step="1" value="30"></label>
+        <label for="c-value">Average job or booking value ($)<input id="c-value" type="number" min="0" step="10" value="350"></label>
+      </div>
+      <div class="calc-result">
+        <small>Estimated revenue at risk</small>
+        <strong id="c-month">$6,825</strong><span>per month</span>
+        <em id="c-year">$81,900 per year</em>
+        <p class="calc-formula" id="c-formula">15 calls × 30% × $350 × 4.33 weeks</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">HOW A CALL GOES</div>
+    <h2>From first ring to booked <em>in one call.</em></h2>
+    <div class="grid three">
+      <article class="tile"><h3>Greets and listens</h3><p>The caller hears your business name, then describes what they need. Questions can come in any order, and the receptionist keeps up.</p></article>
+      <article class="tile"><h3>Checks your rules</h3><p>It answers from the information you approved and recognises calls that need a person, such as emergencies, complaints and billing.</p></article>
+      <article class="tile"><h3>Books and reports</h3><p>The slot goes into your calendar, the caller gets a confirmation, and your team gets a summary of the call.</p></article>
+    </div>
+    <dl class="summary" aria-label="Example call summary">
+      <dt>Example call summary</dt><dd><span class="tag">Example</span></dd>
+      <dt>Caller</dt><dd>Maria, mobile number on file</dd>
+      <dt>Request</dt><dd>Water leak under the kitchen sink</dd>
+      <dt>Flag</dt><dd>Urgent: sent to on-call technician</dd>
+      <dt>Booked</dt><dd>Thursday, 9:00 AM service visit</dd>
+      <dt>Caller next step</dt><dd>Confirmation text with arrival window</dd>
+    </dl>
+  </section>
+
+  <!-- DEMO: unhide (remove the hidden attribute) and put the demo number in href and text once the line is set up -->
+  <section class="section" id="demo">
+    <div class="demo">
+      <div>
+        <div class="eyebrow">TRY IT YOURSELF</div>
+        <h2>Call the demo line. <em>Ask it anything.</em></h2>
+        <p>Pretend you're a customer. Ask about prices, hours or a booking, and hear how the receptionist answers. No sign-up needed.</p>
+      </div>
+      <div class="demo-card">
+        <div class="eyebrow">DEMO LINE</div>
+        <a class="big" href="tel:+18778345524">+1 (877) 834-5524</a>
+        <p>Ask about prices, hours or a booking, and hear the answer.</p>
+        <a class="btn" href="tel:+18778345524">Call the demo line</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="eyebrow">INDUSTRIES</div>
+    <div class="sectionhead">
+      <h2>One receptionist,<br><em>trained for your industry.</em></h2>
+      <a class="textlink" href="/industries/">All industries ↗</a>
+    </div>
+    <div class="industries">
+      <a class="industry" href="/industries/#roofing"><span>⛨</span><h3>Roofing</h3><p>Free inspections, storm intake and urgent leak callbacks.</p></a>
+      <a class="industry" href="/industries/#ac"><span>❄</span><h3>AC &amp; HVAC</h3><p>Emergency triage, service calls and maintenance bookings.</p></a>
+      <a class="industry" href="/industries/#dental"><span>✳</span><h3>Dentists</h3><p>New-patient bookings, insurance questions and reschedules.</p></a>
+      <a class="industry" href="/industries/#hotel"><span>✦</span><h3>Hotels</h3><p>Rooms, rates, reservations and check-in questions.</p></a>
+      <a class="industry" href="/industries/#realestate"><span>⌂</span><h3>Real Estate</h3><p>Instant lead answers, qualification and showing requests.</p></a>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="eyebrow">NEXT STEP</div>
+    <h2>Find out what missed calls <em>cost you.</em></h2>
+    <p>Book a free strategy call. We'll look at how calls reach your business today and show you what your receptionist would handle.</p>
+    <div class="actions">
+      <a class="btn" href="/contact/#enquiry">Book a strategy call ↗</a>
+      <a class="btn outline" href="/services/">See our services</a>
+      <a class="btn outline" href="/demo/">Preview a sample call</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-brand">
+    <a class="logo" href="/"><img src="/logo.png" alt="HelloAIPilot" width="309" height="72"></a>
+    <p>AI receptionists for hotels, dentists, AC companies, real estate teams and roofers.</p>
+  </div>
+  <div class="foot-col">
+    <strong>Pages</strong>
+    <a href="/services/">Services</a><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/faq/">FAQ</a><a href="/book/">Book a call</a><a href="/demo/">Live preview</a><a href="/contact/">Contact</a>
+  </div>
+  <div class="foot-col">
+    <strong>Contact</strong>
+    <a href="mailto:chandra@helloaipilot.com">chandra@helloaipilot.com</a>
+    <a href="tel:+13468896827">+1 346-889-6827</a>
+    <span>28111 S Firethorne Road 605<br>Katy, Texas - 77494</span>
+  </div>
+  <div class="foot-col">
+    <strong>Get started</strong>
+    <a href="/contact/#enquiry">Send an inquiry</a>
+    <a href="/contact/#book">Book a strategy call</a>
+    <span class="copy">© <span id="year"></span> HelloAIPilot</span>
+  </div>
+</footer>
+<script src="/script.js"></script>
+<script src="/chat-widget.js" defer></script>
+</body>
+</html>
