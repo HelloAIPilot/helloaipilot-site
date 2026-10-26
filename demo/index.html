@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live preview | HelloAIPilot</title>
+<meta name="description" content="Preview a sample AI receptionist call built around your business name and main service. Scripted preview, not a live AI.">
+<meta name="theme-color" content="#080d1d">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="/"><img src="/logo.png" alt="HelloAIPilot" width="309" height="72"></a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/industries/">Industries</a>
+    <a href="/about/">About</a>
+    <a href="/faq/">FAQ</a>
+    <a href="/book/">Book a call</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <a class="btn small" href="/contact/#enquiry">Book a strategy call ↗</a>
+</header>
+
+<main>
+  <section class="subhero">
+    <div class="eyebrow">LIVE PREVIEW</div>
+    <h1>See a sample call with <em>your business name in it.</em></h1>
+    <p>Enter your business details and watch a missed call turn into a booking. Choose a missed-call text-back or a live voice call. This is a scripted preview, not a live AI. Your real receptionist is trained on your services, prices and rules.</p>
+  </section>
+
+  <section class="section">
+    <div class="demo-build">
+      <form id="demo-form" novalidate>
+        <label>Business name<input name="biz" maxlength="60" placeholder="e.g. Maple Street Roofing"></label>
+        <label>Industry<select name="ind">
+          <option value="roofing">Roofing</option>
+          <option value="ac">AC &amp; HVAC</option>
+          <option value="dental">Dentist</option>
+          <option value="hotel">Hotel</option>
+          <option value="realestate">Real estate</option>
+        </select></label>
+        <label>Call type<select name="type">
+          <option value="missed">Missed call, automatic text-back</option>
+          <option value="voice">Live voice call</option>
+        </select></label>
+        <label>Main service you want booked<input name="svc" maxlength="60" placeholder="e.g. a free roof inspection"></label>
+        <button class="btn" type="submit">Create my preview ↗</button>
+        <small>Nothing you enter is saved or sent anywhere.</small>
+      </form>
+
+      <div class="demo-stage">
+        <div class="dl-head"><span class="eyebrow">SAMPLE CALL</span><span class="dl-title" id="demo-title">Choose an industry to start</span></div>
+        <div class="missed" id="demo-missed" hidden></div>
+        <div class="demo-msgs" id="demo-msgs" aria-live="polite"></div>
+        <form class="demo-chat" id="demo-chat" autocomplete="off">
+          <input id="demo-q" maxlength="200" placeholder="Type a question, e.g. What are your prices?" aria-label="Type a question">
+          <button class="btn" type="submit">Send</button>
+        </form>
+        <p class="demo-note">Preview replies are scripted. A live receptionist answers from your real rules and calendar.</p>
+        <div class="dl-result" id="demo-result"></div>
+        <div class="demo-actions">
+          <button class="btn outline" id="demo-replay" type="button">Replay call</button>
+          <a class="btn" href="/contact/#enquiry">Make this live ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="demo-types">
+    <div class="eyebrow">THREE WAYS TO TRY IT</div>
+    <h2>Pick the channel your customers <em>already use.</em></h2>
+    <div class="grid three">
+      <article class="tile">
+        <div class="num">Voice</div>
+        <h3>Talk to the receptionist</h3>
+        <p>Ask Jessica a question out loud on the home page. Your own line works the same way: it answers, follows your rules and books the visit.</p>
+        <a class="btn outline small" href="/#ava">Talk to Jessica ↗</a>
+      </article>
+      <article class="tile">
+        <div class="num">Missed call</div>
+        <h3>Text-back after a missed call</h3>
+        <p>When a call goes unanswered, the caller gets an automatic text straight away and the booking happens by text.</p>
+        <a class="btn outline small" href="#demo-form">Try it above ↑</a>
+      </article>
+      <article class="tile">
+        <div class="num">Website chat</div>
+        <h3>Chat on your own site</h3>
+        <p>Visitors ask about prices, hours or booking, then pick a time. Look for the chat button at the bottom right of every page.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-brand">
+    <a class="logo" href="/"><img src="/logo.png" alt="HelloAIPilot" width="309" height="72"></a>
+    <p>AI receptionists for hotels, dentists, AC companies, real estate teams and roofers.</p>
+  </div>
+  <div class="foot-col">
+    <strong>Pages</strong>
+    <a href="/services/">Services</a><a href="/industries/">Industries</a><a href="/about/">About</a><a href="/faq/">FAQ</a><a href="/book/">Book a call</a><a href="/demo/">Live preview</a><a href="/contact/">Contact</a>
+  </div>
+  <div class="foot-col">
+    <strong>Contact</strong>
+    <a href="mailto:chandra@helloaipilot.com">chandra@helloaipilot.com</a>
+    <a href="tel:+13468896827">+1 346-889-6827</a>
+    <span>28111 S Firethorne Road 605<br>Katy, Texas - 77494</span>
+  </div>
+  <div class="foot-col">
+    <strong>Get started</strong>
+    <a href="/contact/#enquiry">Send an inquiry</a>
+    <a href="/contact/#book">Book a strategy call</a>
+    <span class="copy">© <span id="year"></span> HelloAIPilot</span>
+  </div>
+</footer>
+<script src="/script.js"></script>
+<script src="/chat-widget.js" defer></script>
+<script>
+(function(){
+  const form=document.getElementById('demo-form');
+  const msgs=document.getElementById('demo-msgs');
+  const res=document.getElementById('demo-result');
+  const title=document.getElementById('demo-title');
+  const replay=document.getElementById('demo-replay');
+  const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scenes={
+    roofing:{ c:'Hi, I think we have a leak after the storm. Can someone look at it?',
+      a:'Sorry to hear that. {biz} can book {svc} for you. Is there a good time this week?',
+      r:'{svc} booked · Tomorrow, 9:00 AM', d:'a free roof inspection' },
+    ac:{ c:'My AC stopped cooling. Can someone come out today?',
+      a:"I'm sorry about that. {biz} can send a technician for {svc} this afternoon. What's the service address?",
+      r:'{svc} booked · Today, 3:00 PM', d:'a service visit' },
+    dental:{ c:'I need a new-patient visit. Do you have any openings?',
+      a:'Welcome. {biz} can book {svc} on Thursday at 8:30 AM. Would that work for you?',
+      r:'{svc} booked · Thursday, 8:30 AM', d:'a new-patient visit' },
+    hotel:{ c:'Do you have a room for Friday night?',
+      a:'Yes. {biz} has rooms for {svc}. May I have a name to hold the booking?',
+      r:'Reservation held · Friday, 1 night', d:'a room booking' },
+    realestate:{ c:'I would like a showing this weekend. Is that possible?',
+      a:'Happy to help. {biz} can arrange {svc} on Saturday at 11:00 AM. May I have your name and number?',
+      r:'{svc} booked · Saturday, 11:00 AM', d:'a property showing' }
+  };
+  const TEXT_BACK='Hi, this is {biz}. Sorry we missed your call. Reply here and we will help you right away.';
+  const missedBar=document.getElementById('demo-missed');
+  let scene=null, timers=[];
+  let bizName='your business', svcName='a free roof inspection';
+  const chatForm=document.getElementById('demo-chat');
+  const chatInput=document.getElementById('demo-q');
+  function fillBiz(text){ return fill(text, bizName, svcName); }
+  function bubbleWithBooking(text){
+    const d=document.createElement('div');
+    d.className='bub a';
+    d.appendChild(document.createTextNode(text));
+    const wrap=document.createElement('div');
+    const a=document.createElement('a');
+    a.className='btn demo-pick';
+    a.href='https://calendar.app.google/snJDiGwFyuFC5GVa7';
+    a.target='_blank';
+    a.rel='noopener';
+    a.textContent='Pick a time ↗';
+    wrap.appendChild(a);
+    d.appendChild(wrap);
+    msgs.appendChild(d);
+    msgs.scrollTop=msgs.scrollHeight;
+  }
+  chatForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    const q=chatInput.value.trim();
+    if(!q) return;
+    chatInput.value='';
+    bubble('c',q);
+    const answer=(window.HAPAnswer?window.HAPAnswer(q):{text:"I'm not sure about that one yet.",link:''});
+    const typing=document.createElement('div');
+    typing.className='typing';
+    typing.innerHTML='<i></i><i></i><i></i>';
+    msgs.appendChild(typing);
+    msgs.scrollTop=msgs.scrollHeight;
+    later(function(){
+      typing.remove();
+      if(answer.link==='book') bubbleWithBooking(answer.text);
+      else bubble('a',answer.text);
+    },900);
+  });
+  function later(fn,ms){ timers.push(setTimeout(fn,ms)); }
+  function clearAll(){ timers.forEach(clearTimeout); timers=[]; }
+  function fill(text,biz,svc){ return text.split('{biz}').join(biz).split('{svc}').join(svc); }
+  function bubble(cls,text){
+    const d=document.createElement('div');
+    d.className='bub '+cls;
+    d.textContent=text;
+    msgs.appendChild(d);
+  }
+  function showMissedBar(on){
+    missedBar.hidden=!on;
+    if(on){
+      const t=new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+      missedBar.textContent='Missed call · '+t+' · automatic text-back sent';
+    }
+  }
+  function playMissed(){
+    showMissedBar(true);
+    if(reduce){ bubble('a',scene.t); bubble('c',scene.c); bubble('a',scene.a); res.classList.add('on'); return; }
+    let typing=null;
+    later(function(){ bubble('a',scene.t); },400);
+    later(function(){ bubble('c',scene.c); },2000);
+    later(function(){
+      typing=document.createElement('div');
+      typing.className='typing';
+      typing.innerHTML='<i></i><i></i><i></i>';
+      msgs.appendChild(typing);
+    },2800);
+    later(function(){ if(typing)typing.remove(); bubble('a',scene.a); },3900);
+    later(function(){ res.classList.add('on'); },4700);
+  }
+  function play(){
+    clearAll();
+    msgs.innerHTML='';
+    res.classList.remove('on');
+    if(!scene) return;
+    res.textContent=scene.result;
+    if(scene.missed){ playMissed(); return; }
+    showMissedBar(false);
+    if(reduce){ bubble('c',scene.c); bubble('a',scene.a); res.classList.add('on'); return; }
+    let typing=null;
+    later(function(){ bubble('c',scene.c); },300);
+    later(function(){
+      typing=document.createElement('div');
+      typing.className='typing';
+      typing.innerHTML='<i></i><i></i><i></i>';
+      msgs.appendChild(typing);
+    },1100);
+    later(function(){ if(typing)typing.remove(); bubble('a',scene.a); },2300);
+    later(function(){ res.classList.add('on'); },3000);
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const data=new FormData(form);
+    const base=scenes[data.get('ind')]||scenes.roofing;
+    const biz=(data.get('biz')||'').trim()||'your business';
+    const svc=(data.get('svc')||'').trim()||base.d;
+    scene={
+      c:base.c,
+      a:fill(base.a,biz,svc),
+      t:fill(TEXT_BACK,biz,svc),
+      missed:data.get('type')!=='voice',
+      result:fill(base.r,biz,svc)
+    };
+    bizName=biz; svcName=svc;
+    title.textContent='Preview for '+biz;
+    play();
+  });
+  replay.addEventListener('click',play);
+})();
+</script>
+</body>
+</html>
