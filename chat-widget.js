@@ -2,7 +2,7 @@
    Scripted answers only (no live AI). Anything not covered gets a helpful route to a person. */
 (function(){
   const BOOK='https://calendar.app.google/snJDiGwFyuFC5GVa7';
-  const BUY='https://buy.stripe.com/cNi4gt2zX2t05lad8J2kw00';
+  const BUY='https://buy.stripe.com/cNibIVfmJffM9BqgkV2kw01';
   const PHONE='+1 346-889-6827';
   const EMAIL='chandra@helloaipilot.com';
 
@@ -39,7 +39,7 @@
      r:"An AI receptionist answers your phone the way a front-desk person would. It follows the rules you set, answers questions and books appointments. It is available around the clock and can book straight into your calendar while the caller is still on the line."},
     {k:/better than|competitor|answering service|virtual receptionist|call center|smith|ruby|other (service|company|option)/i,
      r:"A live answering service is staffed by people, billed by the minute and works from scripts. An AI receptionist is available 24/7 at a set cost, follows your rules and can book directly into your calendar. A strategy call is the quickest way to compare them for your call volume.", l:['book']},
-    {k:/what (do|does) (you|helloaipilot|this|it) do|what is (this|helloaipilot|it)|what do you (offer|sell|provide)|what (services?|exactly)|what exactly|tell me more|how can you help|what can (you|it|she|shailey) do|what can (i|you) ask/i,
+    {k:/what (do|does) (you|helloaipilot|this|it) do|what is (this|helloaipilot|it)|what do you (offer|sell|provide)|what (services?|exactly)|what exactly|tell me more|how can you help|what can (you|it|she|ava) do|what can (i|you) ask/i,
      r:"HelloAIPilot gives your business an AI receptionist. It answers every call, answers common questions, takes messages, sends urgent calls to the right person and books appointments into your calendar."},
     {k:/faq|frequently asked/i,
      r:"Our FAQ page covers the common questions in more detail. Ask me here for quick answers, or book a call for anything specific to your business."},
@@ -79,12 +79,12 @@
      r:"Yes. The receptionist can handle several calls at the same time and can be set up for more than one location or line. Volume and cost are confirmed on your strategy call."},
     {k:/messages? (to|for) my|(caller|customer) (info|information|details)|collect (info|information|details)|what (info|information|details) (does|will) it (collect|take|ask)/i,
      r:"The receptionist collects what you tell it to. Typically that's the caller's name, phone number, reason for calling and a preferred time. We set the list on your strategy call."},
-    {k:/accura|mistake|wrong|reliab|correct|make things up|hallucinat|doesn'?t know|don'?t know|unsure|not sure|what if (it|she|shailey)/i,
+    {k:/accura|mistake|wrong|reliab|correct|make things up|hallucinat|doesn'?t know|don'?t know|unsure|not sure|what if (it|she|ava)/i,
      r:"The receptionist answers only from the prices, hours and rules you give it. If it isn't sure, it takes a message or passes the caller to a team member, so nothing is made up."},
 
     /* Voice, language and setup */
-    {k:/shailey|jessica|voice|sound|speak|accent|how (does|do) (it|she|he|they) sound|natural|robot|hear (it|her|him)/i,
-     r:"You can talk to Shailey on the home page and hear how the receptionist sounds. Your own voice and accent are chosen on your strategy call.", l:['demo']},
+    {k:/\bava\b|jessica|voice|sound|speak|accent|how (does|do) (it|she|he|they) sound|natural|robot|hear (it|her|him)/i,
+     r:"You can talk to Ava on the home page and hear how the receptionist sounds. Your own voice and accent are chosen on your strategy call.", l:['demo']},
     {k:/language|spanish|espa|french|bilingual|translat/i,
      r:"Tell us which languages your customers speak. We confirm the language setup on your strategy call."},
     {k:/how (does|do) (it|this|the (service|system)|you) work|how it works|process|steps|get started|getting started|set ?up|onboard|install|go live|launch|sign ?up/i,

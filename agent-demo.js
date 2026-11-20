@@ -95,7 +95,7 @@ if (PANEL && CARDS.length) {
     session.end().catch(() => finish(seq));
   });
 
-  // Another call on the page (the home-page Shailey demo) ends this one.
+  // Another call on the page (the home-page Ava demo) ends this one.
   window.addEventListener('hap-call-start', function (e) {
     if (e.detail && e.detail.src === 'demo') return;
     if (session) { try { session.end(); } catch (err) {} session = null; finish(seq); }
